@@ -1,10 +1,15 @@
 # Paper Datasets
 
-Extracted paper and author data which powers indiainresearch.org.
+Extracted paper and author data which powers indiainresearch.org. To view a subset of the data, visit: [indiainresearch.org](https://www.indiainresearch.org/)
 
 ## Features
 
-
+1. Data enriched using OpenAlex, arXiv, PDF and conference website parsing using LLMs.
+2. 1:1 mapping between paper authors and associated institutions
+3. Author rank (undergrad, postgrad, faculty, industry) available for certain venues.
+4. Author affiliation history available.
+5. Standard topics for every paper assigned from OpenAlex and LLMs.
+6. Author and affiliation matching done using LLMs.
 
 ## Data
 
@@ -99,6 +104,18 @@ class AuthorLink(BaseModel):
     author: Author                                                  # author model
     institutions: list[InstitutionLink] = []                        # institutions of author used in association with this corresponding paper
     countries: list[str] = []                                       # countries these institutions belong to
+
+class Topic(BaseModel):                                             # same as https://docs.openalex.org/api-entities/topics
+    id: str
+    openalex_id: str
+    display_name: str
+    subfield: dict
+    field: dict
+    domain: dict
+
+class TopicLink(BaseModel):                                         # same as https://docs.openalex.org/api-entities/topics
+    score: float
+    topic: Topic
 ```
 
 ### Types
@@ -129,7 +146,7 @@ class AuthorPosition(str, Enum):
 ```
 ## Sources
 
-OpenAlex, arXiv, DBLP, Paper Copilot, ACL Anthology.
+[OpenAlex](https://openalex.org/), [arXiv](https://arxiv.org/), [dblp](https://dblp.org/), [Paper Copilot](https://github.com/papercopilot), [ACL Anthology](https://aclanthology.org/).
 
 Note: Some data has been analyzed by AI and may be incorrect.
 
