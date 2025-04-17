@@ -1,7 +1,145 @@
-# paper-data
-Extracted paper data which powers indiainresearch.org
+# Paper Datasets
 
-## License
+Extracted paper and author data which powers indiainresearch.org.
+
+## Features
+
+
+
+## Data
+
+## Schema
+
+Each paper has the following schema as can be parsed as a pydantic model.
+
+### Paper model
+```python
+class Paper(BaseModel):
+    id: str                                                         # unique ID for the paper, unused for now
+    openalex_id: str | None = None                                  # corresponding ID from OpenAlex database
+    doi: str | None = None                                          # DOI if present
+    conf_id: str | None = None                                      # ID used by the corresponding conference
+    title: str | None = None                                        # Paper title
+    authorships: list[AuthorLink] = []                              # list of paper, author relations
+    primary_location: dict | None = None                            # https://docs.openalex.org/api-entities/works/work-object#primary_location
+    open_access: dict | None = None                                 # https://docs.openalex.org/api-entities/works/work-object#the-openaccess-object
+    best_oa_location: dict | None = None                            # https://docs.openalex.org/api-entities/works/work-object#best_oa_location
+    citation_normalized_percentile: dict | None = None              # FWCI percentile
+    fwci: float | None = None                                       # FWCI
+    primary_topic: TopicLink | None = None                          # top ranked topic
+    publication_venue: str                                          # unique code for publication venue, usually same as conference name
+    publication_year: int                                           # publication or conference year
+    related_works: list[str] = []                                   # OpenAlex IDs of related works
+    topics: list[TopicLink] = []                                    # top ranked topics. upto 3
+    keywords: list[dict] = []                                       # keywords from OpenAlex
+    link: str | None = None                                         # Primary webpage for the paper. (prefer this)
+    pdf_link: str | None = None                                     # Primary PDF for the paper if open access (prefer this)
+
+    status: str | None = None                                       # Oral, Poster, Spotlight (from Paper Copilot)
+    track: str | None = None                                        # Conference track
+    github_link: str | None = None                                   
+    project_link: str | None = None
+    video_link: str | None = None
+    openaccess_link: str | None = None
+    poster_link: str | None = None
+    openreview_link: str | None = None
+    arxiv_link: str | None = None
+    proceeding_link: str | None = None
+
+    author_names_from_paper: list[str] = []                         # list of author names by scraping PDF opr website or from Paper Copilot. (avoid using)
+    aff_names_from_paper: list[str] = []                            # list of author affiliations by scraping PDF opr website or from Paper Copilot. (avoid using)
+    aff_domains_from_paper: list[str] = []                          # list of author domains by scraping PDF opr website or from Paper Copilot. (avoid using)
+    author_rank_from_paper: list[str] = []                          # undergrad, postgrad, faculty, researcher, engineer etc. (avoid using)
+    openreview_ids_from_paper: list[str] = []                       # OpenReview IDs (avoid using)
+
+    keywords_from_paper: list[str] = []                             # keywords from conference or pdf scraping
+    primary_area_from_paper: str | None = None                      # primary area from paper
+    overall_rating_from_paper: list[int] = []
+    percent_overall_rating_from_paper: list[float] = []
+    novelty_from_paper: list[int] = []
+    percent_novelty_from_paper: list[float] = []
+```
+
+### Author model
+```python
+class Institution(BaseModel):
+    id: str                                                         # unique ID for the institution, unused for now
+    openalex_id: str | None = None                                  # OpenAlex ID for the institution
+    display_name: str                                               # https://docs.openalex.org/api-entities/institutions/institution-object
+    display_name_acronyms: list[str] = []
+    display_name_alternatives: list[str] = []
+    ror: str | None = None
+    homepage_url: str | None = None
+    country_code: str | None = None
+    type: InstitutionType                                           # institute type as a custom type
+    latlon: tuple[float, float] | None = None                       # latitude and longitude
+
+class AuthorInstitutionLink(BaseModel):
+    rank: AuthorRank | None = None                                  # author rank as undergrad, postgrad, faculty, insdustry etc.
+    institution: Institution | None = None                          # instituion affiliation of author
+    years: list[int] = []                                           # known years associated with institute
+
+class InstitutionLink(BaseModel):
+    rank: AuthorRank | None = None                                  # author rank as undergrad, postgrad, faculty, insdustry etc.
+    institution: Institution | None = None                          # institution of author used in association with this corresponding paper
+
+class Author(BaseModel):
+    id: str                                                         # unique ID for the author, unused for now
+    openalex_id: str | None = None                                  # OpenAlex ID for the institution
+    orcid: str | None = None                                        # ORCID (preferred)
+    openreview_id: str | None = None                                # OpenReview (preferred)
+    name: str
+    email: str | None = None
+    work: list[AuthorInstitutionLink] = []                          # work history, unused for now
+    education: list[AuthorInstitutionLink] = []                     # education history, unused for now
+    affiliations: list[AuthorInstitutionLink] = []                  # paper affiliation history of the author
+
+class AuthorLink(BaseModel):
+    position: AuthorPosition | None = None                          # first, middle or last author
+    author: Author                                                  # author model
+    institutions: list[InstitutionLink] = []                        # institutions of author used in association with this corresponding paper
+    countries: list[str] = []                                       # countries these institutions belong to
+```
+
+### Types
+
+```python
+class InstitutionType(str, Enum):
+    EDUCATION = "education"
+    HEALTHCARE = "healthcare"
+    COMPANY = "company"
+    ARCHIVE = "archive"
+    NONPROFIT = "nonprofit"
+    GOVERNMENT = "government"
+    FACILITY = "facility"
+    FUNDER = "funder"
+    OTHER = "other"
+
+class AuthorRank(str, Enum):
+    UNDERGRAD = "undergrad"
+    POSTGRAD = "postgrad"
+    POSTDOC = "postdoc"
+    FACULTY = "faculty"
+    INDUSTRY = "industry"
+
+class AuthorPosition(str, Enum):
+    FIRST = "first"
+    MIDDLE = "middle"
+    LAST = "last"
+```
+## Sources
+
+OpenAlex, arXiv, DBLP, Paper Copilot, ACL Anthology.
+
+Note: Some data has been analyzed by AI and may be incorrect.
+
+## Need assistance?
+
+Custom requests for scraping and licensing can be sent to contact[AT]indiainresearch.org.
+
+## License and Attribution
+
+If you find this useful, please consider starring and sharing the repository.
 
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
