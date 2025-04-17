@@ -1,6 +1,8 @@
 # Paper Datasets
 
-Extracted paper and author data which powers indiainresearch.org. To view a subset of the data, visit: [indiainresearch.org](https://www.indiainresearch.org/)
+Extracted paper and author data across multiple domains of science which powers indiainresearch.org. 
+
+To view a subset of the data, visit: [indiainresearch.org](https://www.indiainresearch.org/)
 
 ## Features
 
@@ -12,6 +14,37 @@ Extracted paper and author data which powers indiainresearch.org. To view a subs
 6. Author and affiliation matching done using LLMs.
 
 ## Data
+
+### Computer Science
+
+#### Artificial Intelligence
+
+| Subfield | Venue  | Data |
+| ------------- | ------------- | ------------- |
+| Machine Learning | NeurIPS  | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/neurips/2024.json)  |
+|  | ICML | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/icml/2024.json)  |
+|  | ICLR | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/iclr/2024.json)  |
+| Computer Vision | CVPR  | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/cvpr/2024.json)  |
+|  | WACV | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/wacv/2024.json)  |
+|  | ECCV | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/eccv/2024.json)  |
+| Natural Language Processing | EMNLP | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/emnlp/2024.json)  |
+
+#### Systems and Networks
+
+| Subfield | Venue  | Data |
+| ------------- | ------------- | ------------- |
+| Mobile Computing | MobiSys | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/mobisys/2024.json)  |
+| Databases | VLDB | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/vldb/2024.json)  |
+| Operating Systems | OSDI | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/osdi/2024.json)  |
+| Computer Networks | NSDI | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/nsdi/2024.json)  |
+|  | SIGCOMM | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/sigcomm/2024.json)  |
+
+#### Theory
+
+| Subfield | Venue  | Data |
+| ------------- | ------------- | ------------- |
+| Algorithms and Complexity | STOC  | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/stoc/2024.json)  |
+|  | FOCS | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/focs/2024.json)  |
 
 ## Schema
 
