@@ -48,7 +48,7 @@ To view a subset of the data, visit: [indiainresearch.org](https://www.indiainre
 
 ## Schema
 
-Each paper has the following schema as can be parsed as a pydantic model.
+Each paper has the following schema and can be parsed as the following pydantic models:
 
 ### Paper model
 ```python
