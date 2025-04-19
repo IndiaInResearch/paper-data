@@ -1,6 +1,6 @@
 # Paper Datasets
 
-Extracted paper and author data across multiple domains of science which powers indiainresearch.org. 
+Extracted list of published papers and author data across multiple domains of science which powers indiainresearch.org. 
 
 To view a subset of the data, visit: [indiainresearch.org](https://www.indiainresearch.org/)
 
