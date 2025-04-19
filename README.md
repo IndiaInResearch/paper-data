@@ -28,6 +28,11 @@ To view a subset of the data, visit: [indiainresearch.org](https://www.indiainre
 |  | WACV | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/wacv/2024.json)  |
 |  | ECCV | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/eccv/2024.json)  |
 | Natural Language Processing | EMNLP | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/emnlp/2024.json)  |
+|  | ACL | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/acl/2024.json)  |
+|  | NAACL | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/naacl/2024.json)  |
+|  | EACL | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/eacl/2024.json)  |
+|  | TACL | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/tacl/2024.json)  |
+|  | LREC-COLING | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/coling/2024.json)  |
 
 #### Systems and Networks
 
