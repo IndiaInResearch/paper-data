@@ -39,7 +39,12 @@ To view a subset of the data, visit: [indiainresearch.org](https://www.indiainre
 | Subfield | Venue  | Data |
 | ------------- | ------------- | ------------- |
 | Mobile Computing | MobiSys | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/mobisys/2024.json)  |
+|  | UbiComp/IMWUT | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/imwut/2024.json)  |
+|  | SenSys | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/sensys/2024.json)  |
+|  | MobiCom | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/mobicom/2024.json)  |
 | Databases | VLDB | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/vldb/2024.json)  |
+|  | SIGMOD | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/sigmod/2024.json)  |
+|  | PODS | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/pods/2024.json)  |
 | Operating Systems | OSDI | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/osdi/2024.json)  |
 | Computer Networks | NSDI | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/nsdi/2024.json)  |
 |  | SIGCOMM | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/sigcomm/2024.json)  |
@@ -50,6 +55,7 @@ To view a subset of the data, visit: [indiainresearch.org](https://www.indiainre
 | ------------- | ------------- | ------------- |
 | Algorithms and Complexity | STOC  | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/stoc/2024.json)  |
 |  | FOCS | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/focs/2024.json)  |
+|  | SODA | [2024](https://github.com/IndiaInResearch/paper-data/blob/main/data/cs/soda/2024.json)  |
 
 ## Schema
 
